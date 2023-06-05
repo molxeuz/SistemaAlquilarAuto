@@ -50,6 +50,7 @@ public class MainActivity_registro extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
         registrar_registro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

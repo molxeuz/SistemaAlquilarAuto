@@ -4,8 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity_renta"
+    tools:context=".MainActivity_devolucion"
     android:orientation="vertical">
+
 
     <TextView
         android:layout_width="match_parent"
@@ -17,21 +18,21 @@
         android:textStyle="bold"
         android:textColor="#FF0000"
         android:textSize="20dp"
-        android:text="RENTAR AUTO"/>
+        android:text="DEVOLUCION AUTO"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="40dp"
         android:textColor="#FF0000"
         android:textStyle="bold"
         android:textSize="15dp"
         android:textAlignment="center"
-        android:text="PLACA DEL AUTO"/>
-        <Spinner
-        android:id="@+id/spplaca_renta"
+        android:text="NUMERO DE RENTA"/>
+    <Spinner
+        android:id="@+id/spnumero_devolucion"
         android:layout_width="500px"
         android:layout_height="100px"
         android:layout_marginStart="110dp"
@@ -42,15 +43,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="40dp"
         android:textColor="#FF0000"
         android:textStyle="bold"
         android:textSize="15dp"
         android:textAlignment="center"
-        android:text="USUARIO"/>
+        android:text="NUMERO DE PLACA"/>
     <EditText
-        android:id="@+id/etusuario_renta"
+        android:id="@+id/etplaca_devolucion"
         android:layout_width="500px"
         android:layout_height="100px"
         android:inputType="text"
@@ -59,7 +60,7 @@
         android:layout_marginTop="5dp"
         android:layout_marginEnd="40dp"
         android:textColor="@color/black"
-        android:hint="Ingresa el usuario"
+        android:hint="Ingresa el numero"
         android:backgroundTint="@color/black"
         android:textColorHint="@color/black"
         android:textSize="15dp"/>
@@ -68,41 +69,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="40dp"
         android:textColor="#FF0000"
         android:textStyle="bold"
         android:textSize="15dp"
         android:textAlignment="center"
-        android:text="FECHA INICIAL"/>
+        android:text="FECHA DEVOLUCION"/>
     <EditText
-        android:id="@+id/etfecha_inicial_renta"
-        android:layout_width="500px"
-        android:layout_height="100px"
-        android:inputType="text"
-        android:textAlignment="center"
-        android:layout_marginStart="110dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="40dp"
-        android:textColor="@color/black"
-        android:hint="Ingresa la fecha"
-        android:backgroundTint="@color/black"
-        android:textColorHint="@color/black"
-        android:textSize="15dp"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="40dp"
-        android:textColor="#FF0000"
-        android:textStyle="bold"
-        android:textSize="15dp"
-        android:textAlignment="center"
-        android:text="FECHA FINAL"/>
-    <EditText
-        android:id="@+id/etfecha_final_renta"
+        android:id="@+id/etfecha_devolucion"
         android:layout_width="500px"
         android:layout_height="100px"
         android:inputType="text"
@@ -116,64 +91,24 @@
         android:textColorHint="@color/black"
         android:textSize="15dp"/>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="40dp"
-        android:textColor="#FF0000"
-        android:textStyle="bold"
-        android:textSize="15dp"
-        android:textAlignment="center"
-        android:text="NUMERO DE RENTA"/>
-    <EditText
-        android:id="@+id/etnumero_renta"
-        android:layout_width="500px"
-        android:layout_height="100px"
-        android:inputType="textPassword"
-        android:textAlignment="center"
-        android:layout_marginStart="110dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="40dp"
-        android:textColor="@color/black"
-        android:backgroundTint="@color/black"
-        android:textColorHint="@color/black"
-        android:textSize="15dp"/>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="40dp">
         <Button
-            android:id="@+id/btnlista_renta"
-            android:layout_width="120dp"
-            android:layout_height="40dp"
-            android:text="LISTA"
-            android:layout_margin="5dp"
-            android:textSize="10dp"
-            android:backgroundTint="#FF0000"/>
-        <Button
-            android:id="@+id/btnregistrar_renta"
-            android:layout_width="120dp"
-            android:layout_height="40dp"
-            android:text="REGISTRAR"
-            android:layout_margin="5dp"
-            android:textSize="10dp"
-            android:backgroundTint="#FF0000"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_marginTop="10dp">
-        <Button
-            android:id="@+id/btncerrar_renta"
+            android:id="@+id/btncerrar_devolucion"
             android:layout_width="120dp"
             android:layout_height="40dp"
             android:text="CERRAR SESION"
+            android:layout_margin="5dp"
+            android:textSize="10dp"
+            android:backgroundTint="#FF0000"/>
+        <Button
+            android:id="@+id/btndevolucion_devolucion"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:text="DEVOLUCION"
             android:layout_margin="5dp"
             android:textSize="10dp"
             android:backgroundTint="#FF0000"/>
