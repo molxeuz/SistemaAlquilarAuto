@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="40dp"
+        android:textAlignment="center"
+        android:textColor="#FF0000"
+        android:textSize="20dp"
+        android:text="INICIO DE SESIÓN"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="40dp"
+        android:textColor="#FF0000"
+        android:textStyle="bold"
+        android:textSize="15dp"
+        android:textAlignment="center"
+        android:text="USUARIO"/>
+    <EditText
+        android:id="@+id/etusuario_inicio"
+        android:layout_width="500px"
+        android:layout_height="100px"
+        android:inputType="text"
+        android:textAlignment="center"
+        android:layout_marginStart="110dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="40dp"
+        android:textColor="@color/black"
+        android:hint="Ingresa el usuario"
+        android:backgroundTint="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="15dp"/>
+    <TextView
+        android:id="@+id/etcontraseña"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="40dp"
+        android:textColor="#FF0000"
+        android:textStyle="bold"
+        android:textSize="15dp"
+        android:textAlignment="center"
+        android:textColorHint="@color/black"
+        android:textColorLink="@color/black"
+        android:text="CONTRASEÑA"/>
+    <EditText
+        android:id="@+id/etcontraseña_inicio"
+        android:layout_width="500px"
+        android:layout_height="100px"
+        android:inputType="textPassword"
+        android:textAlignment="center"
+        android:layout_marginStart="110dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="40dp"
+        android:textColor="@color/black"
+        android:hint="Ingresa la contraseña"
+        android:backgroundTint="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="15dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="40dp">
+        <Button
+            android:id="@+id/btningresar_inicio"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:text="INICIAR SESION"
+            android:layout_margin="5dp"
+            android:textSize="10dp"
+            android:backgroundTint="#FF0000"/>
+        <Button
+            android:id="@+id/btnregistrar_inicio"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:text="REGISTRAR"
+            android:layout_margin="5dp"
+            android:textSize="10dp"
+            android:backgroundTint="#FF0000"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnolvidar_inicio"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="145dp"
+        android:backgroundTint="#FF0000"
+        android:text="¿Olvidaste la contraseña?"
+        android:textSize="10dp" />
+
+</LinearLayout>

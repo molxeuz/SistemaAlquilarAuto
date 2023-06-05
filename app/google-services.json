@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1080520119979",
+    "project_id": "sistemaalquilarauto",
+    "storage_bucket": "sistemaalquilarauto.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1080520119979:android:8544a50e774947c9dcc9ee",
+        "android_client_info": {
+          "package_name": "com.example.sistemaalquilarauto"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCBa7TbvqkvzgwrPddQz0DOmDug11O-Jgo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
