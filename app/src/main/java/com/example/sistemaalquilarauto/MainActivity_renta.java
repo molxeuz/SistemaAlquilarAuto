@@ -91,8 +91,8 @@ public class MainActivity_renta extends AppCompatActivity {
 
                                                                     Map<String, Object> renta_tabla = new HashMap<>();
                                                                     renta_tabla.put("numero_renta", numero_renta.getText().toString());
-                                                                    renta_tabla.put("usuario_renta", usuario_renta.getText().toString());
                                                                     renta_tabla.put("placa_renta", placa_renta.getSelectedItem().toString());
+                                                                    renta_tabla.put("usuario_renta", usuario_renta.getText().toString());
                                                                     renta_tabla.put("fecha_inicial", fecha_inicial_renta.getText().toString());
                                                                     renta_tabla.put("fecha_final", fecha_final_renta.getText().toString());
 
@@ -211,7 +211,7 @@ public class MainActivity_renta extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(getApplicationContext(), MainActivity_renta.class);
+                Intent intent = new Intent(getApplicationContext(), MainActivity_lista_renta.class);
                 startActivity(intent);
 
                 Limpiar_campos();
