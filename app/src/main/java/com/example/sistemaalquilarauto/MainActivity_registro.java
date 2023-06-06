@@ -43,6 +43,8 @@ public class MainActivity_registro extends AppCompatActivity {
         registrar_registro = findViewById(R.id.btnregistrar_registro);
         regresar_registro = findViewById(R.id.btnregresar_registro);
 
+        getSupportActionBar().hide();
+
         regresar_registro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -28,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         getSupportActionBar().hide();
+
+        getSupportActionBar().hide();
         usuario_inicio = findViewById(R.id.etusuario_inicio);
         contraseña_inicio = findViewById(R.id.etcontraseña_inicio);
         ingresar_inicio = findViewById(R.id.btningresar_inicio);

@@ -31,6 +31,8 @@ public class MainActivity_recuperar extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_recuperar);
 
+        getSupportActionBar().hide();
+
         usuario_recuperar = findViewById(R.id.etusuario_recuperar);
         contraseña_recuperar = findViewById(R.id.etcontraseña_recuperar);
         palabra_recuperar = findViewById(R.id.etpalabra_recuperar);

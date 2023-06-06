@@ -37,6 +37,8 @@ public class MainActivity_auto extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_auto);
 
+        getSupportActionBar().hide();
+
         placa_auto = findViewById(R.id.etplaca_auto);
         marca_auto = findViewById(R.id.etmarca_auto);
         valor_auto = findViewById(R.id.etvalor_auto);

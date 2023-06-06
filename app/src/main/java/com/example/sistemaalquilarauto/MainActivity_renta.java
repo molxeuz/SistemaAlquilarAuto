@@ -22,6 +22,8 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -34,12 +36,16 @@ public class MainActivity_renta extends AppCompatActivity {
     EditText fecha_inicial_renta, fecha_final_renta, numero_renta, usuario_renta;
     Button lista_renta, registrar_renta, cerrar_renta;
 
+    Date fechaActual = new Date();
+
     Boolean isChecked = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_renta);
+
+        getSupportActionBar().hide();
 
         placa_renta = findViewById(R.id.spplaca_renta);
         fecha_inicial_renta = findViewById(R.id.etfecha_inicial_renta);
@@ -81,7 +87,7 @@ public class MainActivity_renta extends AppCompatActivity {
                                                         @Override
                                                         public void onComplete(@NonNull Task<QuerySnapshot> task) {
                                                             if(task.isSuccessful()){
-                                                                if(task.getResult().isEmpty()){
+                                                                if(task.getResult().isEmpty()) {
 
                                                                     Map<String, Object> renta_tabla = new HashMap<>();
                                                                     renta_tabla.put("numero_renta", numero_renta.getText().toString());
@@ -90,7 +96,8 @@ public class MainActivity_renta extends AppCompatActivity {
                                                                     renta_tabla.put("fecha_inicial", fecha_inicial_renta.getText().toString());
                                                                     renta_tabla.put("fecha_final", fecha_final_renta.getText().toString());
 
-                                                                    // numero de renta debe de ser auto Autoincrement
+                                                                    // Numero de renta debe de ser auto Autoincrement
+                                                                    // La fecha tine que tener una condicion
 
                                                                     db.collection("Renta_tabla").add(renta_tabla).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                                                                         @Override
@@ -109,7 +116,8 @@ public class MainActivity_renta extends AppCompatActivity {
 
                                                                         }
                                                                     });
-                                                                } else {
+
+                                                                }else {
 
                                                                     Toast.makeText(getApplicationContext(), "Usuario existente, ingrese uno nuevo!!", Toast.LENGTH_SHORT).show();
                                                                     Limpiar_campos();

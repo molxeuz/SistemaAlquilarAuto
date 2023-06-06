@@ -23,6 +23,8 @@ public class MainActivity_devolucion extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_devolucion);
 
+        getSupportActionBar().hide();
+
         cerrar_devolucion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -32,7 +34,6 @@ public class MainActivity_devolucion extends AppCompatActivity {
 
             }
         });
-
 
 
     }
