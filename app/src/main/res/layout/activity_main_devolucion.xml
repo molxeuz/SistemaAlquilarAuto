@@ -7,7 +7,6 @@
     tools:context=".MainActivity_devolucion"
     android:orientation="vertical">
 
-
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -30,14 +29,20 @@
         android:textStyle="bold"
         android:textSize="15dp"
         android:textAlignment="center"
-        android:text="NUMERO DE RENTA"/>
-    <Spinner
-        android:id="@+id/spnumero_devolucion"
+        android:text="NUMERO DE DEVOLUCION"/>
+    <EditText
+        android:id="@+id/etnumero_devolucion"
         android:layout_width="500px"
         android:layout_height="100px"
+        android:inputType="text"
+        android:textAlignment="center"
         android:layout_marginStart="110dp"
         android:layout_marginTop="5dp"
-        android:layout_marginEnd="40dp"/>
+        android:layout_marginEnd="40dp"
+        android:textColor="@color/black"
+        android:backgroundTint="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="15dp"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -49,21 +54,14 @@
         android:textStyle="bold"
         android:textSize="15dp"
         android:textAlignment="center"
-        android:text="NUMERO DE PLACA"/>
-    <EditText
-        android:id="@+id/etplaca_devolucion"
+        android:text="NUMERO DE RENTA"/>
+    <Spinner
+        android:id="@+id/spnumero_renta_devolucion"
         android:layout_width="500px"
         android:layout_height="100px"
-        android:inputType="text"
-        android:textAlignment="center"
         android:layout_marginStart="110dp"
         android:layout_marginTop="5dp"
-        android:layout_marginEnd="40dp"
-        android:textColor="@color/black"
-        android:hint="Ingresa el numero"
-        android:backgroundTint="@color/black"
-        android:textColorHint="@color/black"
-        android:textSize="15dp"/>
+        android:layout_marginEnd="40dp"/>
 
     <TextView
         android:layout_width="match_parent"
