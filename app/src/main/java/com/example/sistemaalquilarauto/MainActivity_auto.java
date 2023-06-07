@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Switch;
 import android.widget.Toast;
 
@@ -29,7 +30,8 @@ public class MainActivity_auto extends AppCompatActivity {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     EditText placa_auto, marca_auto, valor_auto;
     Switch estado_auto;
-    Button guardar_auto, editar_auto, borrar_auto, buscar_auto, cerrar_auto;
+    ImageButton guardar_auto, editar_auto, borrar_auto, buscar_auto;
+    Button cerrar_auto, renta_auto;
     String old_placa_auto, id_placa_find;
 
     @Override
@@ -43,11 +45,22 @@ public class MainActivity_auto extends AppCompatActivity {
         marca_auto = findViewById(R.id.etmarca_auto);
         valor_auto = findViewById(R.id.etvalor_auto);
         estado_auto = findViewById(R.id.swestado_auto);
-        guardar_auto = findViewById(R.id.btnguardar_auto);
-        editar_auto = findViewById(R.id.btneditar_auto);
-        borrar_auto = findViewById(R.id.btnborrar_auto);
-        buscar_auto = findViewById(R.id.btnbuscar_auto);
+        guardar_auto = findViewById(R.id.ibguardar_auto);
+        editar_auto = findViewById(R.id.ibeditar_auto);
+        borrar_auto = findViewById(R.id.ibborrar_auto);
+        buscar_auto = findViewById(R.id.ibbuscar_auto);
         cerrar_auto = findViewById(R.id.btncerrar_auto);
+        renta_auto = findViewById(R.id.btnrenta_auto);
+
+        renta_auto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(getApplicationContext(), MainActivity_renta.class);
+                startActivity(intent);
+
+            }
+        });
 
         cerrar_auto.setOnClickListener(new View.OnClickListener() {
             @Override

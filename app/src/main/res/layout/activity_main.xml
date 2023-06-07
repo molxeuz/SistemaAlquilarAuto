@@ -80,13 +80,13 @@
                 android:id="@+id/etusuario_inicio"
                 android:layout_width="500px"
                 android:layout_height="95px"
-                android:backgroundTint="@color/black"
+                android:backgroundTint="#575757"
                 android:hint="Ingresa el usuario"
                 android:layout_marginTop="32dp"
                 android:layout_marginLeft="-120dp"
                 android:inputType="text"
                 android:textColor="@color/black"
-                android:textColorHint="@color/black"
+                android:textColorHint="#575757"
                 android:textSize="15dp" />
 
         </LinearLayout>
@@ -139,13 +139,13 @@
                 android:id="@+id/etcontraseña_inicio"
                 android:layout_width="500px"
                 android:layout_height="95px"
-                android:backgroundTint="@color/black"
+                android:backgroundTint="#575757"
                 android:hint="Ingresa la contraseña"
                 android:layout_marginTop="32dp"
                 android:layout_marginLeft="-160dp"
                 android:inputType="text"
                 android:textColor="@color/black"
-                android:textColorHint="@color/black"
+                android:textColorHint="#575757"
                 android:textSize="15dp" />
 
         </LinearLayout>

@@ -11,7 +11,7 @@
         android:layout_width="250dp"
         android:layout_height="55dp"
         android:layout_marginLeft="80dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:background="#C3C3C3">
 
         <LinearLayout
@@ -80,13 +80,13 @@
                 android:id="@+id/etusuario_registro"
                 android:layout_width="500px"
                 android:layout_height="95px"
-                android:backgroundTint="@color/black"
+                android:backgroundTint="#575757"
                 android:hint="Ingresa el usuario"
                 android:layout_marginTop="32dp"
                 android:layout_marginLeft="-120dp"
                 android:inputType="text"
                 android:textColor="@color/black"
-                android:textColorHint="@color/black"
+                android:textColorHint="#575757"
                 android:textSize="15dp" />
 
         </LinearLayout>
@@ -97,7 +97,7 @@
         android:layout_width="250dp"
         android:layout_height="85dp"
         android:layout_marginLeft="120dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
         android:background="#9261EA">
 
         <LinearLayout
@@ -123,13 +123,13 @@
                 android:id="@+id/etnombre_registro"
                 android:layout_width="500px"
                 android:layout_height="95px"
-                android:backgroundTint="@color/black"
+                android:backgroundTint="#575757"
                 android:hint="Ingresa el nombre"
                 android:layout_marginTop="32dp"
                 android:layout_marginLeft="-200dp"
                 android:inputType="text"
                 android:textColor="@color/black"
-                android:textColorHint="@color/black"
+                android:textColorHint="#575757"
                 android:textSize="15dp" />
 
         </LinearLayout>
@@ -243,13 +243,13 @@
                 android:id="@+id/etcontraseña_registro"
                 android:layout_width="500px"
                 android:layout_height="95px"
-                android:backgroundTint="@color/black"
+                android:backgroundTint="#575757"
                 android:hint="Ingresa la contraseña"
                 android:layout_marginTop="32dp"
                 android:layout_marginLeft="-160dp"
                 android:inputType="text"
                 android:textColor="@color/black"
-                android:textColorHint="@color/black"
+                android:textColorHint="#575757"
                 android:textSize="15dp" />
 
         </LinearLayout>
@@ -299,13 +299,13 @@
                 android:id="@+id/etpalabra_registro"
                 android:layout_width="500px"
                 android:layout_height="95px"
-                android:backgroundTint="@color/black"
+                android:backgroundTint="#575757"
                 android:hint="Ingresa la palabra"
                 android:layout_marginTop="32dp"
                 android:layout_marginLeft="-230dp"
                 android:inputType="text"
                 android:textColor="@color/black"
-                android:textColorHint="@color/black"
+                android:textColorHint="#575757"
                 android:textSize="15dp" />
 
         </LinearLayout>
@@ -313,26 +313,80 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_marginTop="40dp">
-        <Button
-            android:id="@+id/btnregresar_registro"
-            android:layout_width="120dp"
-            android:layout_height="40dp"
-            android:text="REGRESAR"
-            android:layout_margin="5dp"
-            android:textSize="10dp"
-            android:backgroundTint="#FF0000"/>
-        <Button
-            android:id="@+id/btnregistrar_registro"
-            android:layout_width="120dp"
-            android:layout_height="40dp"
-            android:text="REGISTRAR"
-            android:layout_margin="5dp"
-            android:textSize="10dp"
-            android:backgroundTint="#FF0000"/>
+        android:layout_width="412dp"
+        android:layout_height="105dp"
+        android:background="#955EF4"
+        android:layout_marginTop="26dp">
+
+        <LinearLayout
+            android:layout_width="412dp"
+            android:layout_height="95dp"
+            android:background="#B084FF"
+            android:layout_marginTop="10dp">
+
+            <LinearLayout
+                android:layout_width="150dp"
+                android:layout_height="45dp"
+                android:layout_marginLeft="45dp"
+                android:layout_marginTop="10dp"
+                android:background="#9261EA">
+
+                <LinearLayout
+                    android:layout_width="140dp"
+                    android:layout_height="30dp"
+                    android:background="#FFFFFF"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="5dp">
+
+                    <Button
+                        android:id="@+id/btnregresar_registro"
+                        android:layout_width="150dp"
+                        android:layout_height="40dp"
+                        android:text="REGRESAR"
+                        android:textSize="13dp"
+                        android:layout_marginTop="-5dp"
+                        android:layout_marginLeft="-5dp"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:backgroundTint="#FFFFFF"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="150dp"
+                android:layout_height="45dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:background="#9261EA">
+
+                <LinearLayout
+                    android:layout_width="140dp"
+                    android:layout_height="30dp"
+                    android:background="#FFFFFF"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="5dp">
+
+                    <Button
+                        android:id="@+id/btnregistrar_registro"
+                        android:layout_width="150dp"
+                        android:layout_height="40dp"
+                        android:text="REGISTRAR"
+                        android:textSize="13dp"
+                        android:layout_marginTop="-5dp"
+                        android:layout_marginLeft="-5dp"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:backgroundTint="#FFFFFF"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
     </LinearLayout>
 
 </LinearLayout>
