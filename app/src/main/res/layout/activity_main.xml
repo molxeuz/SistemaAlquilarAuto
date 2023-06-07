@@ -7,99 +7,221 @@
     tools:context=".MainActivity"
     android:orientation="vertical">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="40dp"
-        android:textAlignment="center"
-        android:textColor="#FF0000"
-        android:textSize="20dp"
-        android:text="INICIO DE SESIÓN"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="40dp"
-        android:textColor="#FF0000"
-        android:textStyle="bold"
-        android:textSize="15dp"
-        android:textAlignment="center"
-        android:text="USUARIO"/>
-    <EditText
-        android:id="@+id/etusuario_inicio"
-        android:layout_width="500px"
-        android:layout_height="100px"
-        android:inputType="text"
-        android:textAlignment="center"
-        android:layout_marginStart="110dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="40dp"
-        android:textColor="@color/black"
-        android:hint="Ingresa el usuario"
-        android:backgroundTint="@color/black"
-        android:textColorHint="@color/black"
-        android:textSize="15dp"/>
-    <TextView
-        android:id="@+id/etcontraseña"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="40dp"
-        android:textColor="#FF0000"
-        android:textStyle="bold"
-        android:textSize="15dp"
-        android:textAlignment="center"
-        android:textColorHint="@color/black"
-        android:textColorLink="@color/black"
-        android:text="CONTRASEÑA"/>
-    <EditText
-        android:id="@+id/etcontraseña_inicio"
-        android:layout_width="500px"
-        android:layout_height="100px"
-        android:inputType="textPassword"
-        android:textAlignment="center"
-        android:layout_marginStart="110dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="40dp"
-        android:textColor="@color/black"
-        android:hint="Ingresa la contraseña"
-        android:backgroundTint="@color/black"
-        android:textColorHint="@color/black"
-        android:textSize="15dp"/>
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_marginTop="40dp">
-        <Button
-            android:id="@+id/btningresar_inicio"
-            android:layout_width="120dp"
+        android:layout_width="250dp"
+        android:layout_height="55dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="100dp"
+        android:background="#C3C3C3">
+
+        <LinearLayout
+            android:layout_width="240dp"
             android:layout_height="40dp"
-            android:text="INICIAR SESION"
-            android:layout_margin="5dp"
-            android:textSize="10dp"
-            android:backgroundTint="#FF0000"/>
-        <Button
-            android:id="@+id/btnregistrar_inicio"
-            android:layout_width="120dp"
-            android:layout_height="40dp"
-            android:text="REGISTRAR"
-            android:layout_margin="5dp"
-            android:textSize="10dp"
-            android:backgroundTint="#FF0000"/>
+            android:background="#E3E3E3"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp">
+
+            <TextView
+                android:layout_width="210dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="14dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="40dp"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                android:text="INICIO DE SESIÓN"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="55dp"
+        android:layout_height="5dp"
+        android:background="#9261EA"
+        android:layout_marginLeft="285dp"
+        android:layout_marginTop="60dp">
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="5dp"
+        android:layout_height="75dp"
+        android:background="#9261EA"
+        android:layout_marginLeft="335dp">
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="250dp"
+        android:layout_height="85dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="-110dp"
+        android:background="#9261EA">
+
+        <LinearLayout
+            android:layout_width="240dp"
+            android:layout_height="70dp"
+            android:background="#B891FD"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp">
+
+            <TextView
+                android:layout_width="80dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="40dp"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                android:textSize="18dp"
+                android:textAlignment="center"
+                android:text="USUARIO"/>
+
+            <EditText
+                android:id="@+id/etusuario_inicio"
+                android:layout_width="500px"
+                android:layout_height="95px"
+                android:backgroundTint="@color/black"
+                android:hint="Ingresa el usuario"
+                android:layout_marginTop="32dp"
+                android:layout_marginLeft="-120dp"
+                android:inputType="text"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:textSize="15dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="50dp"
+        android:layout_height="5dp"
+        android:background="#9261EA"
+        android:layout_marginLeft="70dp"
+        android:layout_marginTop="70dp">
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="5dp"
+        android:layout_height="75dp"
+        android:layout_marginLeft="70dp"
+        android:layout_marginTop="-80dp"
+        android:background="#9261EA">
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="250dp"
+        android:layout_height="85dp"
+        android:layout_marginLeft="120dp"
+        android:layout_marginTop="-46dp"
+        android:background="#9261EA">
+
+        <LinearLayout
+            android:layout_width="240dp"
+            android:layout_height="70dp"
+            android:background="#B891FD"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp">
+
+            <TextView
+                android:layout_width="120dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="-2dp"
+                android:layout_marginEnd="40dp"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                android:textSize="18dp"
+                android:textAlignment="center"
+                android:text="CONTRASEÑA"/>
+
+            <EditText
+                android:id="@+id/etcontraseña_inicio"
+                android:layout_width="500px"
+                android:layout_height="95px"
+                android:backgroundTint="@color/black"
+                android:hint="Ingresa la contraseña"
+                android:layout_marginTop="32dp"
+                android:layout_marginLeft="-160dp"
+                android:inputType="text"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:textSize="15dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="150dp"
+        android:layout_height="45dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="40dp"
+        android:background="#9261EA">
+
+        <LinearLayout
+            android:layout_width="140dp"
+            android:layout_height="30dp"
+            android:background="#FFFFFF"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp">
+
+            <Button
+                android:id="@+id/btningresar_inicio"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:text="INICIAR SESION"
+                android:textSize="13dp"
+                android:layout_marginTop="-5dp"
+                android:layout_marginLeft="-5dp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:backgroundTint="#FFFFFF"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="150dp"
+        android:layout_height="45dp"
+        android:layout_marginLeft="210dp"
+        android:layout_marginTop="-45dp"
+        android:background="#9261EA">
+
+        <LinearLayout
+            android:layout_width="140dp"
+            android:layout_height="30dp"
+            android:background="#FFFFFF"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp">
+
+            <Button
+                android:id="@+id/btnregistrar_inicio"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:text="REGISTRARSE"
+                android:textSize="13dp"
+                android:layout_marginTop="-5dp"
+                android:layout_marginLeft="-5dp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:backgroundTint="#FFFFFF"/>
+
+        </LinearLayout>
+
     </LinearLayout>
 
     <Button
         android:id="@+id/btnolvidar_inicio"
-        android:layout_width="120dp"
-        android:layout_height="50dp"
-        android:layout_marginLeft="145dp"
-        android:backgroundTint="#FF0000"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="80dp"
+        android:textColor="@color/black"
+        android:outlineSpotShadowColor="@color/white"
+        android:backgroundTint="#FFFFFF"
+        android:textStyle="bold"
         android:text="¿Olvidaste la contraseña?"
-        android:textSize="10dp" />
+        android:textSize="13dp" />
 
 </LinearLayout>

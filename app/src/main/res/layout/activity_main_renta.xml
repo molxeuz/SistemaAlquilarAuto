@@ -54,7 +54,7 @@
         android:textStyle="bold"
         android:textSize="15dp"
         android:textAlignment="center"
-        android:text="PLACA DEL AUTO"/>
+        android:text="PLACA DEL AUTOS DISPONIBLES"/>
         <Spinner
         android:id="@+id/spplaca_renta"
         android:layout_width="500px"
