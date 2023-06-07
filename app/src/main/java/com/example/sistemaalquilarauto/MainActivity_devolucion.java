@@ -22,9 +22,14 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 public class MainActivity_devolucion extends AppCompatActivity {
@@ -35,6 +40,11 @@ public class MainActivity_devolucion extends AppCompatActivity {
     Button cerrar_devolucion, devolucion_devolucion, renta_devolucion;
 
     Boolean isChecked = false;
+
+    Calendar calendar = Calendar.getInstance();
+    final int year = calendar.get(Calendar.YEAR);
+    final int month = calendar.get(Calendar.MONTH);
+    final int day = calendar.get(Calendar.DAY_OF_MONTH);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,19 +90,7 @@ public class MainActivity_devolucion extends AppCompatActivity {
                             if (task.isSuccessful()) {
                                 if (task.getResult().size() > 0) {
 
-                                    task.getResult().getDocuments().get(0).getReference().update("estado_auto", true).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                        @Override
-                                        public void onSuccess(Void unused) {
-                                            Toast.makeText(MainActivity_devolucion.this, "Se actualizo el estado del vehículo!!", Toast.LENGTH_SHORT).show();
-                                        }
-                                    }).addOnFailureListener(new OnFailureListener() {
-                                        @Override
-                                        public void onFailure(@NonNull Exception e) {
-                                            Toast.makeText(MainActivity_devolucion.this, "No se actualizo el estado del vehículo!!", Toast.LENGTH_SHORT).show();
-                                        }
-                                    });
-
-                                    // Arreglar placa del vehiculo
+                                    final DocumentSnapshot autoSnapshot = task.getResult().getDocuments().get(0);
 
                                     db.collection("Renta_tabla").whereEqualTo("numero_renta", numero_renta_devolucion.getSelectedItem().toString()).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                                         @Override
@@ -114,6 +112,22 @@ public class MainActivity_devolucion extends AppCompatActivity {
                                                                         devolucion_tabla.put("fecha_devolucion", fecha_devolucion.getText().toString());
                                                                         devolucion_tabla.putAll(data);
 
+                                                                        String fechaDevolucion = fecha_devolucion.getText().toString();
+
+                                                                        Date fechaDevolucionDate = parseDate(fechaDevolucion);
+
+                                                                        Date fechaActual = new Date();
+
+                                                                        if (fechaDevolucionDate != null && fechaActual != null) {
+                                                                            if (fechaDevolucionDate.before(fechaActual)) {
+                                                                                Toast.makeText(MainActivity_devolucion.this, "La fecha de devolucion no puede ser menor que la fecha actual!", Toast.LENGTH_SHORT).show();
+                                                                                return;
+                                                                            }
+                                                                        } else {
+                                                                            Toast.makeText(MainActivity_devolucion.this, "Error interno!", Toast.LENGTH_SHORT).show();
+                                                                            return;
+                                                                        }
+
                                                                         db.collection("Renta_tabla").whereEqualTo("numero_renta", numero_renta_devolucion.getSelectedItem().toString()).get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                                                                             @Override
                                                                             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
@@ -129,14 +143,25 @@ public class MainActivity_devolucion extends AppCompatActivity {
                                                                             }
                                                                         });
 
-                                                                        // Numero de devolucion debe de ser auto Autoincrement
                                                                         // La fecha tine que tener una condicion
 
                                                                         db.collection("Devolucion_tabla").add(devolucion_tabla).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                                                                             @Override
                                                                             public void onSuccess(DocumentReference documentReference) {
 
-                                                                                Toast.makeText(getApplicationContext(), "Devolucion ingresada correctamente ", Toast.LENGTH_SHORT).show();
+                                                                                autoSnapshot.getReference().update("estado_auto", true).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                                                    @Override
+                                                                                    public void onSuccess(Void unused) {
+                                                                                        Toast.makeText(MainActivity_devolucion.this, "Se actualizó el estado del vehículo!!", Toast.LENGTH_SHORT).show();
+                                                                                    }
+                                                                                })
+                                                                                .addOnFailureListener(new OnFailureListener() {
+                                                                                    @Override
+                                                                                    public void onFailure(@NonNull Exception e) {
+                                                                                        Toast.makeText(MainActivity_devolucion.this, "No se actualizó el estado del vehículo!!", Toast.LENGTH_SHORT).show();
+                                                                                    }
+                                                                                });
+
                                                                                 Limpiar_campos();
 
                                                                             }
@@ -163,20 +188,20 @@ public class MainActivity_devolucion extends AppCompatActivity {
 
                                                 }
                                             } else {
-                                                Toast.makeText(getApplicationContext(), "Placa no disponible 2", Toast.LENGTH_SHORT).show();
+                                                Toast.makeText(getApplicationContext(), "Placa no disponible", Toast.LENGTH_SHORT).show();
                                             }
                                         }
                                     });
 
                                 } else {
 
-                                    Toast.makeText(getApplicationContext(), "Placa no disponible 2", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getApplicationContext(), "Placa no disponible", Toast.LENGTH_SHORT).show();
                                     Limpiar_campos();
 
                                 }
                             } else {
 
-                                Toast.makeText(getApplicationContext(), "Placa no disponible 3", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), "Placa no disponible", Toast.LENGTH_SHORT).show();
                                 Limpiar_campos();
 
                             }
@@ -223,6 +248,17 @@ public class MainActivity_devolucion extends AppCompatActivity {
         });
 
     }
+
+    private Date parseDate(String dateStr) {
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+        try {
+            return format.parse(dateStr);
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
     private void Limpiar_campos(){
         numero_devolucion.setText("");
         numero_renta_devolucion.setSelection(0);

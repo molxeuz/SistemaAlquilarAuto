@@ -17,15 +17,19 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 public class MainActivity_renta extends AppCompatActivity {
@@ -37,6 +41,11 @@ public class MainActivity_renta extends AppCompatActivity {
     Button lista_renta, registrar_renta, cerrar_renta, devolucion_renta;
 
     Boolean isChecked = true;
+
+    Calendar calendar = Calendar.getInstance();
+    final int year = calendar.get(Calendar.YEAR);
+    final int month = calendar.get(Calendar.MONTH);
+    final int day = calendar.get(Calendar.DAY_OF_MONTH);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,23 +79,13 @@ public class MainActivity_renta extends AppCompatActivity {
                                             if (task.isSuccessful()) {
                                                 if (task.getResult().size() > 0) {
 
-                                                    task.getResult().getDocuments().get(0).getReference().update("estado_auto", false).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                                        @Override
-                                                        public void onSuccess(Void unused) {
-                                                            Toast.makeText(MainActivity_renta.this, "Se actualizo el estado del vehículo!!", Toast.LENGTH_SHORT).show();
-                                                        }
-                                                    }).addOnFailureListener(new OnFailureListener() {
-                                                        @Override
-                                                        public void onFailure(@NonNull Exception e) {
-                                                            Toast.makeText(MainActivity_renta.this, "No se actualizo el estado del vehículo!!", Toast.LENGTH_SHORT).show();
-                                                        }
-                                                    });
+                                                    final DocumentSnapshot autoSnapshot = task.getResult().getDocuments().get(0);
 
                                                     db.collection("Renta_tabla").whereEqualTo("numero_renta", numero_renta.getText().toString()).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                                                         @Override
                                                         public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                                                            if(task.isSuccessful()){
-                                                                if(task.getResult().isEmpty()) {
+                                                            if (task.isSuccessful()) {
+                                                                if (task.getResult().isEmpty()) {
 
                                                                     Map<String, Object> renta_tabla = new HashMap<>();
                                                                     renta_tabla.put("numero_renta", numero_renta.getText().toString());
@@ -95,52 +94,71 @@ public class MainActivity_renta extends AppCompatActivity {
                                                                     renta_tabla.put("fecha_inicial", fecha_inicial_renta.getText().toString());
                                                                     renta_tabla.put("fecha_final", fecha_final_renta.getText().toString());
 
-                                                                    // Numero de renta debe de ser auto Autoincrement
-                                                                    // La fecha tine que tener una condicion
+                                                                    String fechaInicialStr = fecha_inicial_renta.getText().toString();
+                                                                    String fechaFinalStr = fecha_final_renta.getText().toString();
+
+                                                                    Date fechaInicial = parseDate(fechaInicialStr);
+                                                                    Date fechaFinal = parseDate(fechaFinalStr);
+
+                                                                    Date fechaActual = new Date();
+
+                                                                    if (fechaInicial != null && fechaFinal != null) {
+                                                                        if (fechaInicial.before(fechaActual)) {
+                                                                            Toast.makeText(MainActivity_renta.this, "La fecha inicial no puede ser menor que la fecha actual", Toast.LENGTH_SHORT).show();
+                                                                            return;
+                                                                        } else if (fechaFinal.before(fechaInicial)) {
+                                                                            Toast.makeText(MainActivity_renta.this, "La fecha final no puede ser anterior a la fecha inicial", Toast.LENGTH_SHORT).show();
+                                                                            return;
+                                                                        }
+                                                                    } else {
+                                                                        Toast.makeText(MainActivity_renta.this, "Error al parsear las fechas", Toast.LENGTH_SHORT).show();
+                                                                        return;
+                                                                    }
 
                                                                     db.collection("Renta_tabla").add(renta_tabla).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                                                                         @Override
                                                                         public void onSuccess(DocumentReference documentReference) {
-
                                                                             Toast.makeText(getApplicationContext(), "Renta ingresada correctamente ", Toast.LENGTH_SHORT).show();
-                                                                            Limpiar_campos();
 
+                                                                            autoSnapshot.getReference().update("estado_auto", false).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                                                @Override
+                                                                                public void onSuccess(Void unused) {
+                                                                                    Toast.makeText(MainActivity_renta.this, "Se actualizó el estado del vehículo!!", Toast.LENGTH_SHORT).show();
+                                                                                }
+                                                                            })
+                                                                            .addOnFailureListener(new OnFailureListener() {
+                                                                                @Override
+                                                                                public void onFailure(@NonNull Exception e) {
+                                                                                    Toast.makeText(MainActivity_renta.this, "No se actualizó el estado del vehículo!!", Toast.LENGTH_SHORT).show();
+                                                                                }
+                                                                            });
+
+                                                                            Limpiar_campos();
                                                                         }
-                                                                    }).addOnFailureListener(new OnFailureListener() {
+                                                                    })
+                                                                    .addOnFailureListener(new OnFailureListener() {
                                                                         @Override
                                                                         public void onFailure(@NonNull Exception e) {
-
                                                                             Toast.makeText(getApplicationContext(), "No se pudo realizar el registro: " + e, Toast.LENGTH_SHORT).show();
                                                                             Limpiar_campos();
-
                                                                         }
                                                                     });
-
-                                                                }else {
-
+                                                                } else {
                                                                     Toast.makeText(getApplicationContext(), "Usuario existente, ingrese uno nuevo!!", Toast.LENGTH_SHORT).show();
                                                                     Limpiar_campos();
-
                                                                 }
                                                             }
                                                         }
-
                                                     });
-
                                                 } else {
-
                                                     Toast.makeText(getApplicationContext(), "Placa no disponible", Toast.LENGTH_SHORT).show();
                                                     Limpiar_campos();
-
                                                 }
                                             } else {
-
                                                 Toast.makeText(getApplicationContext(), "Placa no disponible", Toast.LENGTH_SHORT).show();
                                                 Limpiar_campos();
-
                                             }
                                         }
-
                                     });
 
                                 } else {
@@ -234,6 +252,17 @@ public class MainActivity_renta extends AppCompatActivity {
         });
 
     }
+
+    private Date parseDate(String dateStr) {
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+        try {
+            return format.parse(dateStr);
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
     private void Limpiar_campos(){
         numero_renta.setText("");
         usuario_renta.setText("");
@@ -242,4 +271,5 @@ public class MainActivity_renta extends AppCompatActivity {
         placa_renta.setSelection(0);
         placa_renta.requestFocus();
     }
+
 }

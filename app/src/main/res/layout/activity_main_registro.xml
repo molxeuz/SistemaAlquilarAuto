@@ -250,11 +250,11 @@
                 android:textStyle="bold"
                 android:textSize="18dp"
                 android:textAlignment="center"
-                android:text="DISPONIBILIDAD"/>
+                android:text="ROL DE USUARIO"/>
             <TextView
-                android:layout_width="90dp"
+                android:layout_width="50dp"
                 android:layout_height="20dp"
-                android:text="No disponible"
+                android:text="Usuario"
                 android:layout_marginLeft="-180dp"
                 android:layout_marginTop="35dp">
             </TextView>
@@ -266,9 +266,9 @@
                 android:layout_marginLeft="5dp">
             </Switch>
             <TextView
-                android:layout_width="70dp"
+                android:layout_width="45dp"
                 android:layout_height="20dp"
-                android:text="Disponible"
+                android:text="Admin"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="35dp">
             </TextView>

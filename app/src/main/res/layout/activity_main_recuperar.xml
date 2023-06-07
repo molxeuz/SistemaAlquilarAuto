@@ -259,7 +259,7 @@
                 android:hint="Ingresa la contraseña"
                 android:layout_marginTop="32dp"
                 android:layout_marginLeft="-220dp"
-                android:inputType="text"
+                android:inputType="textPassword"
                 android:textColor="@color/black"
                 android:textColorHint="#575757"
                 android:textSize="15dp" />
