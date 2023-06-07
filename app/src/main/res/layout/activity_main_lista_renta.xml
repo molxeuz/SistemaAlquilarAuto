@@ -7,23 +7,86 @@
     tools:context=".MainActivity_lista_renta"
     android:orientation="vertical">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="40dp"
-        android:textAlignment="center"
-        android:textStyle="bold"
-        android:textColor="#FF0000"
-        android:textSize="20dp"
-        android:text="LISTA DE RENTAS"/>
+    <LinearLayout
+        android:layout_width="412dp"
+        android:layout_height="70dp"
+        android:background="#955EF4">
+
+        <LinearLayout
+            android:layout_width="412dp"
+            android:layout_height="60dp"
+            android:background="#B084FF">
+
+            <LinearLayout
+                android:layout_width="110dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:background="#9261EA">
+
+                <LinearLayout
+                    android:layout_width="100dp"
+                    android:layout_height="25dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="5dp"
+                    android:background="#FFFFFF">
+
+                    <Button
+                        android:id="@+id/btnregresar_lista_renta"
+                        android:layout_width="120dp"
+                        android:layout_height="35dp"
+                        android:layout_marginLeft="-11dp"
+                        android:layout_marginTop="-5dp"
+                        android:backgroundTint="#FFFFFF"
+                        android:text="REGRESAR"
+                        android:textColor="@color/black"
+                        android:textSize="13dp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="50dp"
+        android:background="#C3C3C3">
+
+        <LinearLayout
+            android:layout_width="240dp"
+            android:layout_height="25dp"
+            android:background="#E3E3E3"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp">
+
+            <TextView
+                android:layout_width="230dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="-1dp"
+                android:layout_marginEnd="40dp"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:text="LISTADO DE RENTAS"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvrenta_lista"
         android:layout_width="350dp"
-        android:layout_height="500dp"
+        android:layout_height="400dp"
         android:layout_marginLeft="25dp"
-        android:layout_marginTop="60dp" />
+        android:layout_marginTop="20dp" />
 
 </LinearLayout>

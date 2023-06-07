@@ -5,7 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -19,6 +22,7 @@ public class MainActivity_lista_renta extends AppCompatActivity {
 
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     RecyclerView renta_lista;
+    Button regresar_lista_renta;
     ArrayList<renta> RentaLista;
 
     @Override
@@ -29,11 +33,22 @@ public class MainActivity_lista_renta extends AppCompatActivity {
         getSupportActionBar().hide();
 
         renta_lista = findViewById(R.id.rvrenta_lista);
+        regresar_lista_renta = findViewById(R.id.btnregresar_lista_renta);
         RentaLista = new ArrayList<>();
         renta_lista.setLayoutManager(new LinearLayoutManager(this.getApplicationContext()));
         renta_lista.setHasFixedSize(true);
 
         CargarRenta();
+
+        regresar_lista_renta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(getApplicationContext(), MainActivity_renta.class);
+                startActivity(intent);
+
+            }
+        });
 
     }
 

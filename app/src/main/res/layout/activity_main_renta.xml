@@ -7,176 +7,447 @@
     tools:context=".MainActivity_renta"
     android:orientation="vertical">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="40dp"
-        android:textAlignment="center"
-        android:textStyle="bold"
-        android:textColor="#FF0000"
-        android:textSize="20dp"
-        android:text="RENTAR AUTO"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="40dp"
-        android:textColor="#FF0000"
-        android:textStyle="bold"
-        android:textSize="15dp"
-        android:textAlignment="center"
-        android:text="NUMERO DE RENTA"/>
-    <EditText
-        android:id="@+id/etnumero_renta"
-        android:layout_width="500px"
-        android:layout_height="100px"
-        android:inputType="text"
-        android:textAlignment="center"
-        android:layout_marginStart="110dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="40dp"
-        android:textColor="@color/black"
-        android:backgroundTint="@color/black"
-        android:textColorHint="@color/black"
-        android:textSize="15dp"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="40dp"
-        android:textColor="#FF0000"
-        android:textStyle="bold"
-        android:textSize="15dp"
-        android:textAlignment="center"
-        android:text="PLACA DEL AUTOS DISPONIBLES"/>
-        <Spinner
-        android:id="@+id/spplaca_renta"
-        android:layout_width="500px"
-        android:layout_height="100px"
-        android:layout_marginStart="110dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="40dp"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="40dp"
-        android:textColor="#FF0000"
-        android:textStyle="bold"
-        android:textSize="15dp"
-        android:textAlignment="center"
-        android:text="USUARIO"/>
-    <EditText
-        android:id="@+id/etusuario_renta"
-        android:layout_width="500px"
-        android:layout_height="100px"
-        android:inputType="text"
-        android:textAlignment="center"
-        android:layout_marginStart="110dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="40dp"
-        android:textColor="@color/black"
-        android:hint="Ingresa el usuario"
-        android:backgroundTint="@color/black"
-        android:textColorHint="@color/black"
-        android:textSize="15dp"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="40dp"
-        android:textColor="#FF0000"
-        android:textStyle="bold"
-        android:textSize="15dp"
-        android:textAlignment="center"
-        android:text="FECHA INICIAL"/>
-    <EditText
-        android:id="@+id/etfecha_inicial_renta"
-        android:layout_width="500px"
-        android:layout_height="100px"
-        android:inputType="datetime"
-        android:textAlignment="center"
-        android:layout_marginStart="110dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="40dp"
-        android:textColor="@color/black"
-        android:hint="Ingresa la fecha"
-        android:backgroundTint="@color/black"
-        android:textColorHint="@color/black"
-        android:textSize="15dp"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="40dp"
-        android:textColor="#FF0000"
-        android:textStyle="bold"
-        android:textSize="15dp"
-        android:textAlignment="center"
-        android:text="FECHA FINAL"/>
-    <EditText
-        android:id="@+id/etfecha_final_renta"
-        android:layout_width="500px"
-        android:layout_height="100px"
-        android:inputType="datetime"
-        android:textAlignment="center"
-        android:layout_marginStart="110dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="40dp"
-        android:textColor="@color/black"
-        android:hint="Ingresa la fecha"
-        android:backgroundTint="@color/black"
-        android:textColorHint="@color/black"
-        android:textSize="15dp"/>
-
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_marginTop="10dp">
-        <Button
-            android:id="@+id/btnlista_renta"
-            android:layout_width="120dp"
-            android:layout_height="40dp"
-            android:text="LISTA"
-            android:layout_margin="5dp"
-            android:textSize="10dp"
-            android:backgroundTint="#FF0000"/>
-        <Button
-            android:id="@+id/btnregistrar_renta"
-            android:layout_width="120dp"
-            android:layout_height="40dp"
-            android:text="REGISTRAR"
-            android:layout_margin="5dp"
-            android:textSize="10dp"
-            android:backgroundTint="#FF0000"/>
+        android:layout_width="412dp"
+        android:layout_height="70dp"
+        android:background="#955EF4">
+
+        <LinearLayout
+            android:layout_width="412dp"
+            android:layout_height="60dp"
+            android:background="#B084FF">
+
+            <LinearLayout
+                android:layout_width="110dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:background="#9261EA">
+
+                <LinearLayout
+                    android:layout_width="100dp"
+                    android:layout_height="25dp"
+                    android:background="#FFFFFF"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="5dp">
+
+                    <Button
+                        android:id="@+id/btncerrar_renta"
+                        android:layout_width="120dp"
+                        android:layout_height="35dp"
+                        android:text="CERRAR"
+                        android:textSize="13dp"
+                        android:layout_marginTop="-5dp"
+                        android:layout_marginLeft="-11dp"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:backgroundTint="#FFFFFF"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="110dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="150dp"
+                android:layout_marginTop="10dp"
+                android:background="#9261EA">
+
+                <LinearLayout
+                    android:layout_width="100dp"
+                    android:layout_height="25dp"
+                    android:background="#FFFFFF"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="5dp">
+
+                    <Button
+                        android:id="@+id/btndevolucion_renta"
+                        android:layout_width="125dp"
+                        android:layout_height="35dp"
+                        android:text="DEVOLUCION"
+                        android:textSize="13dp"
+                        android:layout_marginTop="-5dp"
+                        android:layout_marginLeft="-13dp"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:backgroundTint="#FFFFFF"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="10dp"
+        android:background="#C3C3C3">
+
+        <LinearLayout
+            android:layout_width="240dp"
+            android:layout_height="25dp"
+            android:background="#E3E3E3"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp">
+
+            <TextView
+                android:layout_width="230dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="-1dp"
+                android:layout_marginEnd="40dp"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:text="RENTA DE AUTO"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="55dp"
+        android:layout_height="5dp"
+        android:background="#9261EA"
+        android:layout_marginLeft="285dp"
+        android:layout_marginTop="50dp">
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="5dp"
+        android:layout_height="50dp"
+        android:background="#9261EA"
+        android:layout_marginLeft="335dp">
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="250dp"
+        android:layout_height="85dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="-95dp"
+        android:background="#9261EA">
+
+        <LinearLayout
+            android:layout_width="240dp"
+            android:layout_height="70dp"
+            android:background="#B891FD"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp">
+
+            <TextView
+                android:layout_width="170dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="40dp"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                android:textSize="18dp"
+                android:textAlignment="center"
+                android:text="NUMERO DE RENTA"/>
+
+            <EditText
+                android:id="@+id/etnumero_renta"
+                android:layout_width="500px"
+                android:layout_height="95px"
+                android:backgroundTint="#575757"
+                android:layout_marginTop="32dp"
+                android:layout_marginLeft="-210dp"
+                android:inputType="text"
+                android:textColor="@color/black"
+                android:textColorHint="#575757"
+                android:textSize="15dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="250dp"
+        android:layout_height="85dp"
+        android:layout_marginLeft="120dp"
+        android:layout_marginTop="5dp"
+        android:background="#9261EA">
+
+        <LinearLayout
+            android:layout_width="240dp"
+            android:layout_height="70dp"
+            android:background="#B891FD"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp">
+
+            <TextView
+                android:layout_width="180dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginEnd="40dp"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                android:textSize="18dp"
+                android:textAlignment="center"
+                android:text="AUTOS DISPONIBLES"/>
+
+            <Spinner
+                android:id="@+id/spplaca_renta"
+                android:layout_width="500px"
+                android:layout_height="90px"
+                android:layout_marginLeft="-220dp"
+                android:layout_marginTop="31dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="45dp"
+        android:layout_height="5dp"
+        android:background="#9261EA"
+        android:layout_marginLeft="75dp"
+        android:layout_marginTop="-50dp">
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="5dp"
+        android:layout_height="55dp"
+        android:background="#9261EA"
+        android:layout_marginLeft="75dp">
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="250dp"
+        android:layout_height="85dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="-5dp"
+        android:background="#9261EA">
+
+        <LinearLayout
+            android:layout_width="240dp"
+            android:layout_height="70dp"
+            android:background="#B891FD"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp">
+
+            <TextView
+                android:layout_width="80dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="-2dp"
+                android:layout_marginEnd="40dp"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                android:textSize="18dp"
+                android:textAlignment="center"
+                android:text="USUARIO"/>
+
+            <EditText
+                android:id="@+id/etusuario_renta"
+                android:layout_width="500px"
+                android:layout_height="95px"
+                android:backgroundTint="#575757"
+                android:hint="Ingresa el usuario"
+                android:layout_marginTop="32dp"
+                android:layout_marginLeft="-120dp"
+                android:inputType="text"
+                android:textColor="@color/black"
+                android:textColorHint="#575757"
+                android:textSize="15dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="55dp"
+        android:layout_height="5dp"
+        android:background="#9261EA"
+        android:layout_marginLeft="285dp"
+        android:layout_marginTop="-50dp">
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="5dp"
+        android:layout_height="50dp"
+        android:background="#9261EA"
+        android:layout_marginLeft="335dp">
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="250dp"
+        android:layout_height="85dp"
+        android:layout_marginLeft="120dp"
+        android:background="#9261EA">
+
+        <LinearLayout
+            android:layout_width="240dp"
+            android:layout_height="70dp"
+            android:background="#B891FD"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp">
+
+            <TextView
+                android:layout_width="130dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="-2dp"
+                android:layout_marginEnd="40dp"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                android:textSize="18dp"
+                android:textAlignment="center"
+                android:text="FECHA INICIAL"/>
+
+            <EditText
+                android:id="@+id/etfecha_inicial_renta"
+                android:layout_width="500px"
+                android:layout_height="95px"
+                android:backgroundTint="#575757"
+                android:hint="Ingresa la fecha inicial"
+                android:layout_marginTop="32dp"
+                android:layout_marginLeft="-170dp"
+                android:inputType="date"
+                android:textColor="@color/black"
+                android:textColorHint="#575757"
+                android:textSize="15dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="45dp"
+        android:layout_height="5dp"
+        android:background="#9261EA"
+        android:layout_marginLeft="75dp"
+        android:layout_marginTop="-50dp">
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="5dp"
+        android:layout_height="55dp"
+        android:background="#9261EA"
+        android:layout_marginLeft="75dp">
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="250dp"
+        android:layout_height="85dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="-5dp"
+        android:background="#9261EA">
+
+        <LinearLayout
+            android:layout_width="240dp"
+            android:layout_height="70dp"
+            android:background="#B891FD"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp">
+
+            <TextView
+                android:layout_width="120dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="-2dp"
+                android:layout_marginEnd="40dp"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                android:textSize="18dp"
+                android:textAlignment="center"
+                android:text="FECHA FINAL"/>
+
+            <EditText
+                android:id="@+id/etfecha_final_renta"
+                android:layout_width="500px"
+                android:layout_height="95px"
+                android:backgroundTint="#575757"
+                android:hint="Ingresa la fecha final"
+                android:layout_marginTop="32dp"
+                android:layout_marginLeft="-160dp"
+                android:inputType="date"
+                android:textColor="@color/black"
+                android:textColorHint="#575757"
+                android:textSize="15dp" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="412dp"
+        android:layout_height="105dp"
+        android:background="#955EF4"
         android:layout_marginTop="10dp">
-        <Button
-            android:id="@+id/btncerrar_renta"
-            android:layout_width="120dp"
-            android:layout_height="40dp"
-            android:text="CERRAR SESION"
-            android:layout_margin="5dp"
-            android:textSize="10dp"
-            android:backgroundTint="#FF0000"/>
+
+        <LinearLayout
+            android:layout_width="412dp"
+            android:layout_height="95dp"
+            android:background="#B084FF"
+            android:layout_marginTop="10dp">
+
+            <LinearLayout
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="10dp"
+                android:background="#9261EA">
+
+                <LinearLayout
+                    android:layout_width="140dp"
+                    android:layout_height="25dp"
+                    android:background="#FFFFFF"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="5dp">
+
+                    <Button
+                        android:id="@+id/btnlista_renta"
+                        android:layout_width="150dp"
+                        android:layout_height="35dp"
+                        android:text="LISTAR"
+                        android:textSize="13dp"
+                        android:layout_marginTop="-5dp"
+                        android:layout_marginLeft="-5dp"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:backgroundTint="#FFFFFF"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:background="#9261EA">
+
+                <LinearLayout
+                    android:layout_width="140dp"
+                    android:layout_height="25dp"
+                    android:background="#FFFFFF"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="5dp">
+
+                    <Button
+                        android:id="@+id/btnregistrar_renta"
+                        android:layout_width="150dp"
+                        android:layout_height="35dp"
+                        android:text="RENTAR"
+                        android:textSize="13dp"
+                        android:layout_marginTop="-5dp"
+                        android:layout_marginLeft="-5dp"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:backgroundTint="#FFFFFF"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
     </LinearLayout>
 
 </LinearLayout>

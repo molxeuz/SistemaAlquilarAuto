@@ -34,9 +34,7 @@ public class MainActivity_renta extends AppCompatActivity {
 
     Spinner placa_renta;
     EditText fecha_inicial_renta, fecha_final_renta, numero_renta, usuario_renta;
-    Button lista_renta, registrar_renta, cerrar_renta;
-
-    Date fechaActual = new Date();
+    Button lista_renta, registrar_renta, cerrar_renta, devolucion_renta;
 
     Boolean isChecked = true;
 
@@ -55,6 +53,7 @@ public class MainActivity_renta extends AppCompatActivity {
         registrar_renta = findViewById(R.id.btnregistrar_renta);
         cerrar_renta = findViewById(R.id.btncerrar_renta);
         usuario_renta = findViewById(R.id.etusuario_renta);
+        devolucion_renta = findViewById(R.id.btndevolucion_renta);
 
         registrar_renta.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -172,6 +171,8 @@ public class MainActivity_renta extends AppCompatActivity {
 
                     List<String> dataList = new ArrayList<>();
 
+                    dataList.add("Seleccionar placa");
+
                     for (QueryDocumentSnapshot document : task.getResult()) {
 
                         String data = document.getString("placa_auto");
@@ -194,6 +195,19 @@ public class MainActivity_renta extends AppCompatActivity {
             }
 
         });
+
+        devolucion_renta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(getApplicationContext(), MainActivity_devolucion.class);
+                startActivity(intent);
+
+                Limpiar_campos();
+
+            }
+        });
+
 
         cerrar_renta.setOnClickListener(new View.OnClickListener() {
             @Override

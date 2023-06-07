@@ -32,7 +32,7 @@ public class MainActivity_devolucion extends AppCompatActivity {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     Spinner numero_renta_devolucion;
     EditText numero_devolucion, fecha_devolucion;
-    Button cerrar_devolucion, devolucion_devolucion;
+    Button cerrar_devolucion, devolucion_devolucion, renta_devolucion;
 
     Boolean isChecked = false;
 
@@ -46,6 +46,7 @@ public class MainActivity_devolucion extends AppCompatActivity {
         fecha_devolucion = findViewById(R.id.etfecha_devolucion);
         devolucion_devolucion = findViewById(R.id.btndevolucion_devolucion);
         cerrar_devolucion = findViewById(R.id.btncerrar_devolucion);
+        renta_devolucion = findViewById(R.id.btnrenta_devolucion);
 
         getSupportActionBar().hide();
 
@@ -54,6 +55,16 @@ public class MainActivity_devolucion extends AppCompatActivity {
             public void onClick(View v) {
 
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+
+            }
+        });
+
+        renta_devolucion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(getApplicationContext(), MainActivity_renta.class);
                 startActivity(intent);
 
             }
@@ -185,6 +196,8 @@ public class MainActivity_devolucion extends AppCompatActivity {
                 if (task.isSuccessful()) {
 
                     List<String> dataList = new ArrayList<>();
+
+                    dataList.add("Seleccionar numero");
 
                     for (QueryDocumentSnapshot document : task.getResult()) {
 

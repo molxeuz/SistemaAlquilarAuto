@@ -9,13 +9,340 @@
 
     <LinearLayout
         android:layout_width="412dp"
-        android:layout_height="90dp"
+        android:layout_height="70dp"
         android:background="#955EF4">
 
         <LinearLayout
             android:layout_width="412dp"
-            android:layout_height="80dp"
+            android:layout_height="60dp"
             android:background="#B084FF">
+
+            <LinearLayout
+                android:layout_width="110dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:background="#9261EA">
+
+                <LinearLayout
+                    android:layout_width="100dp"
+                    android:layout_height="25dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="5dp"
+                    android:background="#FFFFFF">
+
+                    <Button
+                        android:id="@+id/btncerrar_auto"
+                        android:layout_width="120dp"
+                        android:layout_height="35dp"
+                        android:layout_marginLeft="-11dp"
+                        android:layout_marginTop="-5dp"
+                        android:backgroundTint="#FFFFFF"
+                        android:text="CERRAR"
+                        android:textColor="@color/black"
+                        android:textSize="13dp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="110dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="150dp"
+                android:layout_marginTop="10dp"
+                android:background="#9261EA"
+                android:baselineAligned="false">
+
+                <LinearLayout
+                    android:layout_width="100dp"
+                    android:layout_height="25dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="5dp"
+                    android:background="#FFFFFF">
+
+                    <Button
+                        android:id="@+id/btnrenta_auto"
+                        android:layout_width="120dp"
+                        android:layout_height="35dp"
+                        android:layout_marginLeft="-11dp"
+                        android:layout_marginTop="-5dp"
+                        android:backgroundTint="#FFFFFF"
+                        android:text="REGISTRAR"
+                        android:textColor="@color/black"
+                        android:textSize="13dp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="40dp"
+        android:background="#C3C3C3">
+
+        <LinearLayout
+            android:layout_width="240dp"
+            android:layout_height="25dp"
+            android:background="#E3E3E3"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp">
+
+            <TextView
+                android:layout_width="230dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="-1dp"
+                android:layout_marginEnd="40dp"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:text="REGISTRO DE AUTO"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="55dp"
+        android:layout_height="5dp"
+        android:background="#9261EA"
+        android:layout_marginLeft="285dp"
+        android:layout_marginTop="50dp">
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="5dp"
+        android:layout_height="50dp"
+        android:background="#9261EA"
+        android:layout_marginLeft="335dp">
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="250dp"
+        android:layout_height="85dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="-95dp"
+        android:background="#9261EA">
+
+        <LinearLayout
+            android:layout_width="240dp"
+            android:layout_height="70dp"
+            android:background="#B891FD"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp">
+
+            <TextView
+                android:layout_width="170dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="40dp"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                android:textSize="18dp"
+                android:textAlignment="center"
+                android:text="NUMERO DE PLACA"/>
+
+            <EditText
+                android:id="@+id/etplaca_auto"
+                android:layout_width="500px"
+                android:layout_height="95px"
+                android:backgroundTint="#575757"
+                android:hint="Ingresa la placa"
+                android:layout_marginTop="32dp"
+                android:layout_marginLeft="-210dp"
+                android:inputType="text"
+                android:textColor="@color/black"
+                android:textColorHint="#575757"
+                android:textSize="15dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="250dp"
+        android:layout_height="85dp"
+        android:layout_marginLeft="120dp"
+        android:layout_marginTop="5dp"
+        android:background="#9261EA">
+
+        <LinearLayout
+            android:layout_width="240dp"
+            android:layout_height="70dp"
+            android:background="#B891FD"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp">
+
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="-2dp"
+                android:layout_marginEnd="40dp"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                android:textSize="18dp"
+                android:textAlignment="center"
+                android:text="MARCA DE AUTO"/>
+
+            <EditText
+                android:id="@+id/etmarca_auto"
+                android:layout_width="500px"
+                android:layout_height="95px"
+                android:backgroundTint="#575757"
+                android:hint="Ingresa la marca"
+                android:layout_marginTop="32dp"
+                android:layout_marginLeft="-190dp"
+                android:inputType="text"
+                android:textColor="@color/black"
+                android:textColorHint="#575757"
+                android:textSize="15dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="45dp"
+        android:layout_height="5dp"
+        android:background="#9261EA"
+        android:layout_marginLeft="75dp"
+        android:layout_marginTop="-50dp">
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="5dp"
+        android:layout_height="55dp"
+        android:background="#9261EA"
+        android:layout_marginLeft="75dp">
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="250dp"
+        android:layout_height="85dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="-5dp"
+        android:background="#9261EA">
+
+        <LinearLayout
+            android:layout_width="240dp"
+            android:layout_height="70dp"
+            android:background="#B891FD"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp">
+
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginEnd="40dp"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                android:textSize="18dp"
+                android:textAlignment="center"
+                android:text="ESTADO DE AUTO"/>
+            <TextView
+                android:layout_width="90dp"
+                android:layout_height="20dp"
+                android:text="No disponible"
+                android:layout_marginLeft="-190dp"
+                android:layout_marginTop="35dp">
+            </TextView>
+            <Switch
+                android:id="@+id/swestado_auto"
+                android:layout_width="130px"
+                android:layout_height="50px"
+                android:layout_marginTop="35dp"
+                android:layout_marginLeft="5dp">
+            </Switch>
+            <TextView
+                android:layout_width="70dp"
+                android:layout_height="20dp"
+                android:text="Disponible"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="35dp">
+            </TextView>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="55dp"
+        android:layout_height="5dp"
+        android:background="#9261EA"
+        android:layout_marginLeft="285dp"
+        android:layout_marginTop="-50dp">
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="5dp"
+        android:layout_height="50dp"
+        android:background="#9261EA"
+        android:layout_marginLeft="335dp">
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="250dp"
+        android:layout_height="85dp"
+        android:layout_marginLeft="120dp"
+        android:background="#9261EA">
+
+        <LinearLayout
+            android:layout_width="240dp"
+            android:layout_height="70dp"
+            android:background="#B891FD"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp">
+
+            <TextView
+                android:layout_width="130dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="-2dp"
+                android:layout_marginEnd="40dp"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                android:textSize="18dp"
+                android:textAlignment="center"
+                android:text="VALOR DIARIO"/>
+
+            <EditText
+                android:id="@+id/etvalor_auto"
+                android:layout_width="500px"
+                android:layout_height="95px"
+                android:backgroundTint="#575757"
+                android:hint="Ingresa el valor"
+                android:layout_marginTop="32dp"
+                android:layout_marginLeft="-170dp"
+                android:inputType="number"
+                android:textColor="@color/black"
+                android:textColorHint="#575757"
+                android:textSize="15dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="412dp"
+        android:layout_height="105dp"
+        android:background="#955EF4"
+        android:layout_marginTop="40dp">
+
+        <LinearLayout
+            android:layout_width="412dp"
+            android:layout_height="95dp"
+            android:background="#B084FF"
+            android:layout_marginTop="10dp">
 
             <LinearLayout
                 android:layout_width="70dp"
@@ -120,332 +447,6 @@
                     android:textStyle="bold">
                 </TextView>
             </LinearLayout>
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="250dp"
-        android:layout_height="55dp"
-        android:layout_marginLeft="80dp"
-        android:layout_marginTop="20dp"
-        android:background="#C3C3C3">
-
-        <LinearLayout
-            android:layout_width="240dp"
-            android:layout_height="40dp"
-            android:background="#E3E3E3"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="5dp">
-
-            <TextView
-                android:layout_width="230dp"
-                android:layout_height="25dp"
-                android:layout_marginStart="4dp"
-                android:layout_marginTop="7dp"
-                android:layout_marginEnd="40dp"
-                android:textAlignment="center"
-                android:textColor="#000000"
-                android:textSize="20dp"
-                android:textStyle="bold"
-                android:text="REGISTRO DE AUTO"/>
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="55dp"
-        android:layout_height="5dp"
-        android:background="#9261EA"
-        android:layout_marginLeft="285dp"
-        android:layout_marginTop="60dp">
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="5dp"
-        android:layout_height="55dp"
-        android:background="#9261EA"
-        android:layout_marginLeft="335dp">
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="250dp"
-        android:layout_height="85dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="-100dp"
-        android:background="#9261EA">
-
-        <LinearLayout
-            android:layout_width="240dp"
-            android:layout_height="70dp"
-            android:background="#B891FD"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="5dp">
-
-            <TextView
-                android:layout_width="170dp"
-                android:layout_height="25dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="40dp"
-                android:textColor="#000000"
-                android:textStyle="bold"
-                android:textSize="18dp"
-                android:textAlignment="center"
-                android:text="NUMERO DE PLACA"/>
-
-            <EditText
-                android:id="@+id/etplaca_auto"
-                android:layout_width="500px"
-                android:layout_height="95px"
-                android:backgroundTint="#575757"
-                android:hint="Ingresa la placa"
-                android:layout_marginTop="32dp"
-                android:layout_marginLeft="-210dp"
-                android:inputType="text"
-                android:textColor="@color/black"
-                android:textColorHint="#575757"
-                android:textSize="15dp" />
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="250dp"
-        android:layout_height="85dp"
-        android:layout_marginLeft="120dp"
-        android:layout_marginTop="10dp"
-        android:background="#9261EA">
-
-        <LinearLayout
-            android:layout_width="240dp"
-            android:layout_height="70dp"
-            android:background="#B891FD"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="5dp">
-
-            <TextView
-                android:layout_width="150dp"
-                android:layout_height="25dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="-2dp"
-                android:layout_marginEnd="40dp"
-                android:textColor="#000000"
-                android:textStyle="bold"
-                android:textSize="18dp"
-                android:textAlignment="center"
-                android:text="MARCA DE AUTO"/>
-
-            <EditText
-                android:id="@+id/etmarca_auto"
-                android:layout_width="500px"
-                android:layout_height="95px"
-                android:backgroundTint="#575757"
-                android:hint="Ingresa la marca"
-                android:layout_marginTop="32dp"
-                android:layout_marginLeft="-190dp"
-                android:inputType="text"
-                android:textColor="@color/black"
-                android:textColorHint="#575757"
-                android:textSize="15dp" />
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="55dp"
-        android:layout_height="5dp"
-        android:background="#9261EA"
-        android:layout_marginLeft="65dp"
-        android:layout_marginTop="-50dp">
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="5dp"
-        android:layout_height="55dp"
-        android:background="#9261EA"
-        android:layout_marginLeft="65dp">
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="250dp"
-        android:layout_height="85dp"
-        android:layout_marginLeft="40dp"
-        android:background="#9261EA">
-
-        <LinearLayout
-            android:layout_width="240dp"
-            android:layout_height="70dp"
-            android:background="#B891FD"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="5dp">
-
-            <TextView
-                android:layout_width="150dp"
-                android:layout_height="25dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="6dp"
-                android:layout_marginEnd="40dp"
-                android:textColor="#000000"
-                android:textStyle="bold"
-                android:textSize="18dp"
-                android:textAlignment="center"
-                android:text="ESTADO DE AUTO"/>
-            <TextView
-                android:layout_width="90dp"
-                android:layout_height="20dp"
-                android:text="No disponible"
-                android:layout_marginLeft="-190dp"
-                android:layout_marginTop="35dp">
-            </TextView>
-            <Switch
-                android:id="@+id/swestado_auto"
-                android:layout_width="130px"
-                android:layout_height="50px"
-                android:layout_marginTop="35dp"
-                android:layout_marginLeft="5dp">
-            </Switch>
-            <TextView
-                android:layout_width="70dp"
-                android:layout_height="20dp"
-                android:text="Disponible"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="35dp">
-            </TextView>
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="55dp"
-        android:layout_height="5dp"
-        android:background="#9261EA"
-        android:layout_marginLeft="285dp"
-        android:layout_marginTop="-50dp">
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="5dp"
-        android:layout_height="55dp"
-        android:background="#9261EA"
-        android:layout_marginLeft="335dp">
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="250dp"
-        android:layout_height="85dp"
-        android:layout_marginLeft="120dp"
-        android:background="#9261EA">
-
-        <LinearLayout
-            android:layout_width="240dp"
-            android:layout_height="70dp"
-            android:background="#B891FD"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="5dp">
-
-            <TextView
-                android:layout_width="130dp"
-                android:layout_height="25dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="-2dp"
-                android:layout_marginEnd="40dp"
-                android:textColor="#000000"
-                android:textStyle="bold"
-                android:textSize="18dp"
-                android:textAlignment="center"
-                android:text="VALOR DIARIO"/>
-
-            <EditText
-                android:id="@+id/etvalor_auto"
-                android:layout_width="500px"
-                android:layout_height="95px"
-                android:backgroundTint="#575757"
-                android:hint="Ingresa el valor"
-                android:layout_marginTop="32dp"
-                android:layout_marginLeft="-170dp"
-                android:inputType="text"
-                android:textColor="@color/black"
-                android:textColorHint="#575757"
-                android:textSize="15dp" />
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="412dp"
-        android:layout_height="105dp"
-        android:background="#955EF4"
-        android:layout_marginTop="26dp">
-
-        <LinearLayout
-            android:layout_width="412dp"
-            android:layout_height="95dp"
-            android:background="#B084FF"
-            android:layout_marginTop="10dp">
-
-            <LinearLayout
-                android:layout_width="150dp"
-                android:layout_height="45dp"
-                android:layout_marginLeft="45dp"
-                android:layout_marginTop="10dp"
-                android:background="#9261EA">
-
-                <LinearLayout
-                    android:layout_width="140dp"
-                    android:layout_height="30dp"
-                    android:background="#FFFFFF"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginLeft="5dp">
-
-                    <Button
-                        android:id="@+id/btncerrar_auto"
-                        android:layout_width="150dp"
-                        android:layout_height="40dp"
-                        android:text="CERRAR"
-                        android:textSize="13dp"
-                        android:layout_marginTop="-5dp"
-                        android:layout_marginLeft="-5dp"
-                        android:textColor="@color/black"
-                        android:textStyle="bold"
-                        android:backgroundTint="#FFFFFF"/>
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="150dp"
-                android:layout_height="45dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="10dp"
-                android:background="#9261EA">
-
-                <LinearLayout
-                    android:layout_width="140dp"
-                    android:layout_height="30dp"
-                    android:background="#FFFFFF"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginLeft="5dp">
-
-                    <Button
-                        android:id="@+id/btnrenta_auto"
-                        android:layout_width="150dp"
-                        android:layout_height="40dp"
-                        android:text="RENTA"
-                        android:textSize="13dp"
-                        android:layout_marginTop="-5dp"
-                        android:layout_marginLeft="-5dp"
-                        android:textColor="@color/black"
-                        android:textStyle="bold"
-                        android:backgroundTint="#FFFFFF"/>
-
-                </LinearLayout>
-
-            </LinearLayout>
-
 
         </LinearLayout>
 
