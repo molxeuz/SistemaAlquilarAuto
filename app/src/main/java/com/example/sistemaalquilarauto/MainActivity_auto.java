@@ -1,8 +1,10 @@
 package com.example.sistemaalquilarauto;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -26,21 +28,17 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MainActivity_auto extends AppCompatActivity {
-
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     EditText placa_auto, marca_auto, valor_auto;
     Switch estado_auto;
     ImageButton guardar_auto, editar_auto, borrar_auto, buscar_auto;
     Button cerrar_auto, renta_auto;
     String old_placa_auto, id_placa_find;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_auto);
-
         getSupportActionBar().hide();
-
         placa_auto = findViewById(R.id.etplaca_auto);
         marca_auto = findViewById(R.id.etmarca_auto);
         valor_auto = findViewById(R.id.etvalor_auto);
@@ -51,31 +49,23 @@ public class MainActivity_auto extends AppCompatActivity {
         buscar_auto = findViewById(R.id.ibbuscar_auto);
         cerrar_auto = findViewById(R.id.btncerrar_auto);
         renta_auto = findViewById(R.id.btnrenta_auto);
-
         renta_auto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Intent intent = new Intent(getApplicationContext(), MainActivity_renta.class);
                 startActivity(intent);
-
             }
         });
-
         cerrar_auto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
-
             }
         });
-
         guardar_auto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 if (!placa_auto.getText().toString().isEmpty() && !marca_auto.getText().toString().isEmpty() && !valor_auto.getText().toString().isEmpty()){
                     db.collection("Auto_tabla").whereEqualTo("placa_auto", placa_auto.getText().toString()).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                         @Override
@@ -88,101 +78,95 @@ public class MainActivity_auto extends AppCompatActivity {
                                     auto_tabla.put("valor_auto", valor_auto.getText().toString());
                                     boolean ischecked = estado_auto.isChecked();
                                     auto_tabla.put("estado_auto", ischecked);
-
                                     db.collection("Auto_tabla").add(auto_tabla).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                                         @Override
                                         public void onSuccess(DocumentReference documentReference) {
-                                            Toast.makeText(MainActivity_auto.this, "Auto ingresado correctamente!! ", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(MainActivity_auto.this, "Auto ingresado correctamente!", Toast.LENGTH_SHORT).show();
                                             Limpiar_campos();
                                         }
                                     }).addOnFailureListener(new OnFailureListener() {
                                         @Override
                                         public void onFailure(@NonNull Exception e) {
-                                            Toast.makeText(MainActivity_auto.this, "No se pudo realizar el registro: " + e, Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(MainActivity_auto.this, "No se pudo realizar el registro!", Toast.LENGTH_SHORT).show();
                                             Limpiar_campos();
                                         }
                                     });
                                 } else {
-                                    Toast.makeText(MainActivity_auto.this, "Auto existente, ingrese uno nuevo!!", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(MainActivity_auto.this, "Auto existente, ingrese uno nuevo!", Toast.LENGTH_SHORT).show();
                                     Limpiar_campos();
                                 }
                             }
                         }
                     });
                 } else {
-                    Toast.makeText(MainActivity_auto.this, "Debe ingresar todos los datos para guardar, intente de nuevo!!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity_auto.this, "Debe ingresar todos los datos para guardar, intente de nuevo!", Toast.LENGTH_SHORT).show();
                 }
-
             }
         });
-
         editar_auto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                if (!placa_auto.getText().toString().isEmpty() && !marca_auto.getText().toString().isEmpty() && !valor_auto.getText().toString().isEmpty()){
-                    if (!old_placa_auto.equals(placa_auto.getText().toString())){
-                        db.collection("Auto_tabla").whereEqualTo("placa_auto", placa_auto.getText().toString()).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                            @Override
-                            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                                if (task.isSuccessful()){
-                                    if (task.getResult().isEmpty()){
-
-                                        Map<String, Object> auto_placa = new HashMap<>();
-                                        auto_placa.put("marca_auto", marca_auto.getText().toString());
-                                        auto_placa.put("placa_auto", placa_auto.getText().toString());
-                                        auto_placa.put("valor_auto", valor_auto.getText().toString());
-                                        boolean estado = estado_auto.isChecked();
-                                        auto_placa.put("estado_auto", estado);
-
-                                        db.collection("Auto_tabla").document(id_placa_find).set(auto_placa).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                            @Override
-                                            public void onSuccess(Void unused) {
-                                                Toast.makeText(MainActivity_auto.this, "Auto editado correctamente", Toast.LENGTH_SHORT).show();
-                                            }
-                                        }).addOnFailureListener(new OnFailureListener() {
-                                            @Override
-                                            public void onFailure(@NonNull Exception e) {
-                                                Toast.makeText(MainActivity_auto.this, "Error interno", Toast.LENGTH_SHORT).show();
-                                                Limpiar_campos();
-                                            }
-                                        });
-                                    } else {
-                                        Toast.makeText(MainActivity_auto.this, "Auto existe, intente de nuevo", Toast.LENGTH_SHORT).show();
-                                        Limpiar_campos();
+                if (id_placa_find != null) {
+                    if (!placa_auto.getText().toString().isEmpty() && !marca_auto.getText().toString().isEmpty() && !valor_auto.getText().toString().isEmpty()){
+                        if (!old_placa_auto.equals(placa_auto.getText().toString())){
+                            db.collection("Auto_tabla").whereEqualTo("placa_auto", placa_auto.getText().toString()).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                                @Override
+                                public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                    if (task.isSuccessful()){
+                                        if (task.getResult().isEmpty()){
+                                            Map<String, Object> auto_placa = new HashMap<>();
+                                            auto_placa.put("marca_auto", marca_auto.getText().toString());
+                                            auto_placa.put("placa_auto", placa_auto.getText().toString());
+                                            auto_placa.put("valor_auto", valor_auto.getText().toString());
+                                            boolean estado = estado_auto.isChecked();
+                                            auto_placa.put("estado_auto", estado);
+                                            db.collection("Auto_tabla").document(id_placa_find).set(auto_placa).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                @Override
+                                                public void onSuccess(Void unused) {
+                                                    Toast.makeText(MainActivity_auto.this, "Auto editado correctamente!", Toast.LENGTH_SHORT).show();
+                                                }
+                                            }).addOnFailureListener(new OnFailureListener() {
+                                                @Override
+                                                public void onFailure(@NonNull Exception e) {
+                                                    Toast.makeText(MainActivity_auto.this, "Error interno!", Toast.LENGTH_SHORT).show();
+                                                    Limpiar_campos();
+                                                }
+                                            });
+                                        } else {
+                                            Toast.makeText(MainActivity_auto.this, "Auto existe, intente de nuevo!", Toast.LENGTH_SHORT).show();
+                                            Limpiar_campos();
+                                        }
                                     }
                                 }
-                            }
-                        });
+                            });
+                        }else{
+                            Map<String, Object> auto_placa = new HashMap<>();
+                            auto_placa.put("marca_auto", marca_auto.getText().toString());
+                            auto_placa.put("placa_auto", placa_auto.getText().toString());
+                            auto_placa.put("valor_auto", valor_auto.getText().toString());
+                            boolean estado = estado_auto.isChecked();
+                            auto_placa.put("estado_auto", estado);
+                            db.collection("Auto_tabla").document(id_placa_find).set(auto_placa).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void unused) {
+                                    Toast.makeText(MainActivity_auto.this, "Auto actualizado correctamente!", Toast.LENGTH_SHORT).show();
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Toast.makeText(MainActivity_auto.this, "Error interno!", Toast.LENGTH_SHORT).show();
+                                    Limpiar_campos();
+                                }
+                            });
+                        }
                     }else{
-
-                        Map<String, Object> auto_placa = new HashMap<>();
-                        auto_placa.put("marca_auto", marca_auto.getText().toString());
-                        auto_placa.put("placa_auto", placa_auto.getText().toString());
-                        auto_placa.put("valor_auto", valor_auto.getText().toString());
-                        boolean estado = estado_auto.isChecked();
-                        auto_placa.put("estado_auto", estado);
-
-                        db.collection("Auto_tabla").document(id_placa_find).set(auto_placa).addOnSuccessListener(new OnSuccessListener<Void>() {
-                            @Override
-                            public void onSuccess(Void unused) {
-                                Toast.makeText(MainActivity_auto.this, "Auto actualizado correctamente", Toast.LENGTH_SHORT).show();
-                            }
-                        }).addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                Toast.makeText(MainActivity_auto.this, "Error interno", Toast.LENGTH_SHORT).show();
-                                Limpiar_campos();
-                            }
-                        });
+                        Toast.makeText(MainActivity_auto.this, "Debe ingresar todos los datos para editar, intente de nuevo!", Toast.LENGTH_SHORT).show();
                     }
-                }else{
-                    Toast.makeText(MainActivity_auto.this, "Debe ingresar todos los datos para editar, intente de nuevo!!", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(MainActivity_auto.this, "Debe realizar una búsqueda antes de editar el auto!", Toast.LENGTH_SHORT).show();
                 }
-
             }
         });
-
         buscar_auto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -200,39 +184,51 @@ public class MainActivity_auto extends AppCompatActivity {
                                         valor_auto.setText(document.getString("valor_auto"));
                                         boolean auto_estado = document.getBoolean("estado_auto");
                                         estado_auto.setChecked(auto_estado);
-
-                                        Toast.makeText(getApplicationContext(), "Codigo de auto: " + id_placa_find, Toast.LENGTH_SHORT).show();
                                     }
                                 } else {
-                                    Toast.makeText(MainActivity_auto.this, "Auto no existe, intente de nuevo!!", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(MainActivity_auto.this, "Auto no existe, intente de nuevo!", Toast.LENGTH_SHORT).show();
                                     Limpiar_campos();
                                 }
                             }
                         }
                     });
                 } else {
-                    Toast.makeText(MainActivity_auto.this, "Debe ingresar la placa del auto para buscar, intente de nuevo!!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity_auto.this, "Debe ingresar la placa del auto para buscar, intente de nuevo!", Toast.LENGTH_SHORT).show();
                 }
             }
         });
-
         borrar_auto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!placa_auto.getText().toString().isEmpty() && !marca_auto.getText().toString().isEmpty() && !valor_auto.getText().toString().isEmpty()){
-                    db.collection("Auto_tabla").document(id_placa_find).delete().addOnSuccessListener(new OnSuccessListener<Void>() {
-                        @Override
-                        public void onSuccess(Void unused) {
-                            Toast.makeText(MainActivity_auto.this, "Auto eliminado con exito!!", Toast.LENGTH_SHORT).show();
-                            Limpiar_campos();
+                if (id_placa_find != null) {
+                    if (!placa_auto.getText().toString().isEmpty()) {
+                        db.collection("Auto_tabla").document(id_placa_find).delete(); {
+                            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MainActivity_auto.this);
+                            alertDialogBuilder.setMessage("Quieres borrar el auto?");
+                            alertDialogBuilder.setPositiveButton("Eliminar!", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface arg0, int arg1) {
+                                    Toast.makeText(getApplicationContext(),"Auto borrado con exito!",Toast.LENGTH_SHORT).show();
+                                    Limpiar_campos();
+                                }
+                            });
+                            alertDialogBuilder.setNegativeButton("Cancelar!", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface arg0, int arg1) {
+                                    Toast.makeText(getApplicationContext(),"Auto no borrado con exito!", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                            AlertDialog alertDialog = alertDialogBuilder.create();
+                            alertDialog.show();
                         }
-                    });
-                }else{
-                    Toast.makeText(MainActivity_auto.this, "Debe ingresar todos los datos para borrar, intente de nuevo!!", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(MainActivity_auto.this, "Ingrese la placa del auto!", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toast.makeText(MainActivity_auto.this, "Debe realizar una búsqueda antes de editar el auto!!", Toast.LENGTH_SHORT).show();
                 }
             }
         });
-
     }
     private void Limpiar_campos(){
         placa_auto.setText("");

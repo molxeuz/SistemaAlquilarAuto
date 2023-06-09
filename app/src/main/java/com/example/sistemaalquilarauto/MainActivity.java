@@ -17,25 +17,19 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 
 public class MainActivity extends AppCompatActivity {
-
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     EditText usuario_inicio, contraseña_inicio;
     Button ingresar_inicio, registrar_inicio, olvidar_inicio;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        getSupportActionBar().hide();
-
         getSupportActionBar().hide();
         usuario_inicio = findViewById(R.id.etusuario_inicio);
         contraseña_inicio = findViewById(R.id.etcontraseña_inicio);
         ingresar_inicio = findViewById(R.id.btningresar_inicio);
         registrar_inicio = findViewById(R.id.btnregistrar_inicio);
         olvidar_inicio = findViewById(R.id.btnolvidar_inicio);
-
         olvidar_inicio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -43,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
         registrar_inicio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -62,23 +55,17 @@ public class MainActivity extends AppCompatActivity {
                                 if (task.getResult().size() > 0) {
                                     DocumentSnapshot document = task.getResult().getDocuments().get(0);
                                     boolean rol_registro = document.getBoolean("rol_registro");
-
                                     if (rol_registro) {
-
                                         Intent intent = new Intent(getApplicationContext(), MainActivity_auto.class);
                                         startActivity(intent);
-
+                                        Toast.makeText(MainActivity.this, "Bienvenido administrador a Registro de autos!", Toast.LENGTH_SHORT).show();
                                         Limpiar_campos();
-
                                     } else {
-
                                         Intent intent = new Intent(getApplicationContext(), MainActivity_renta.class);
                                         startActivity(intent);
-
+                                        Toast.makeText(MainActivity.this, "Bienvenido usuario a Registro de rentas!", Toast.LENGTH_SHORT).show();
                                         Limpiar_campos();
-
                                     }
-
                                 } else {
                                     Toast.makeText(MainActivity.this, "Acceso de sesión no exitoso", Toast.LENGTH_SHORT).show();
                                     Limpiar_campos();
@@ -94,7 +81,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
     }
     private void Limpiar_campos(){
         usuario_inicio.setText("");

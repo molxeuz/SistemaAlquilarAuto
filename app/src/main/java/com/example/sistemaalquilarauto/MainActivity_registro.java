@@ -24,17 +24,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MainActivity_registro extends AppCompatActivity {
-
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     EditText usuario_registro, nombre_registro, contraseña_registro, palabra_registro;
     Switch rol_registro;
     Button regresar_registro, registrar_registro;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_registro);
-
         usuario_registro = findViewById(R.id.etusuario_registro);
         nombre_registro = findViewById(R.id.etnombre_registro);
         contraseña_registro = findViewById(R.id.etcontraseña_registro);
@@ -42,9 +39,7 @@ public class MainActivity_registro extends AppCompatActivity {
         palabra_registro = findViewById(R.id.etpalabra_registro);
         registrar_registro = findViewById(R.id.btnregistrar_registro);
         regresar_registro = findViewById(R.id.btnregresar_registro);
-
         getSupportActionBar().hide();
-
         regresar_registro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -52,7 +47,6 @@ public class MainActivity_registro extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
         registrar_registro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,44 +63,31 @@ public class MainActivity_registro extends AppCompatActivity {
                                     registro_tabla.put("palabra_registro", palabra_registro.getText().toString());
                                     boolean ischecked = rol_registro.isChecked();
                                     registro_tabla.put("rol_registro", ischecked);
-
                                     db.collection("Registro_tabla").add(registro_tabla).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                                         @Override
                                         public void onSuccess(DocumentReference documentReference) {
                                             Toast.makeText(MainActivity_registro.this, "Usuario ingresado correctamente!! ", Toast.LENGTH_SHORT).show();
-
-                                            DocumentSnapshot document = task.getResult().getDocuments().get(0);
-                                            boolean rol_registro = document.getBoolean("rol_registro");
-
-                                            if (rol_registro) {
-                                                Intent intent = new Intent(getApplicationContext(), MainActivity_auto.class);
-                                                startActivity(intent);
-                                            } else {
-                                                Intent intent = new Intent(getApplicationContext(), MainActivity_renta.class);
-                                                startActivity(intent);
-                                            }
-
+                                            Limpiar_campos();
                                         }
                                     }).addOnFailureListener(new OnFailureListener() {
                                         @Override
                                         public void onFailure(@NonNull Exception e) {
-                                            Toast.makeText(MainActivity_registro.this, "No se pudo realizar el registro: " + e, Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(MainActivity_registro.this, "Error interno!", Toast.LENGTH_SHORT).show();
                                             Limpiar_campos();
                                         }
                                     });
                                 } else {
-                                    Toast.makeText(MainActivity_registro.this, "Usuario existente, ingrese uno nuevo!!", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(MainActivity_registro.this, "Usuario existente, ingrese uno nuevo!", Toast.LENGTH_SHORT).show();
                                     Limpiar_campos();
                                 }
                             }
                         }
                     });
                 } else {
-                    Toast.makeText(MainActivity_registro.this, "Debe ingresar todos los datos para guardar, intente de nuevo!!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity_registro.this, "Debe ingresar todos los datos para guardar, intente de nuevo!", Toast.LENGTH_SHORT).show();
                 }
             }
         });
-
     }
     private void Limpiar_campos(){
         usuario_registro.setText("");
